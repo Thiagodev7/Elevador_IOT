@@ -1,8 +1,8 @@
-import 'package:bitebunk/main.dart';
+
 import 'package:bitebunk/sceens/formulario_cliente.dart';
 import 'package:bitebunk/sceens/galeria_cliente.dart';
 import 'package:flutter/material.dart';
-import 'package:bitebunk/models/clientes.dart';
+
 
 class ListaCliente extends StatefulWidget {
   @override
@@ -15,7 +15,7 @@ class _ListaClienteState extends State<ListaCliente> {
     return MaterialApp(
       theme: _Theme(),
       home: Scaffold(
-        appBar: _ListaClienteAppBar(),
+
         body: _ListaClieteBuild(),
         floatingActionButton: BotaoNewClient(context),
       ),
@@ -41,7 +41,7 @@ class _ListaClienteState extends State<ListaCliente> {
   ThemeData _Theme() {
     return ThemeData(
       primaryColor: Colors.blueGrey,
-      accentColor: Colors.blueAccent[700],
+
       buttonTheme: ButtonThemeData(
         buttonColor: Colors.blueAccent[700],
         textTheme: ButtonTextTheme.primary,
@@ -49,18 +49,36 @@ class _ListaClienteState extends State<ListaCliente> {
     );
   }
 
-  AppBar _ListaClienteAppBar() {
-    return AppBar(
-      backgroundColor: Colors.blueGrey,
-      title: Text('Lista de Clientes'),
-    );
-  }
+
 
   ListView _ListaClieteBuild() {
     return ListView(
       children: <Widget>[
         _Cliente('Cliente 1', 'Office 450 KG.'),
-        _Cliente('Cliente 2', 'Premium P.G4')
+        _Cliente('Cliente 2', 'Premium P.G4'),
+        _Cliente('Cliente 1', 'Office 450 KG.'),
+        _Cliente('Cliente 2', 'Premium P.G4'),
+        _Cliente('Cliente 1', 'Office 450 KG.'),
+        _Cliente('Cliente 2', 'Premium P.G4'),
+        _Cliente('Cliente 1', 'Office 450 KG.'),
+        _Cliente('Cliente 2', 'Premium P.G4'),
+        _Cliente('Cliente 1', 'Office 450 KG.'),
+        _Cliente('Cliente 2', 'Premium P.G4'),
+        _Cliente('Cliente 1', 'Office 450 KG.'),
+        _Cliente('Cliente 2', 'Premium P.G4'),
+        _Cliente('Cliente 1', 'Office 450 KG.'),
+        _Cliente('Cliente 2', 'Premium P.G4'),
+        _Cliente('Cliente 1', 'Office 450 KG.'),
+        _Cliente('Cliente 2', 'Premium P.G4'),
+        _Cliente('Cliente 1', 'Office 450 KG.'),
+        _Cliente('Cliente 2', 'Premium P.G4'),
+        _Cliente('Cliente 1', 'Office 450 KG.'),
+        _Cliente('Cliente 2', 'Premium P.G4'),
+        _Cliente('Cliente 1', 'Office 450 KG.'),
+        _Cliente('Cliente 2', 'Premium P.G4'),
+        _Cliente('Cliente 1', 'Office 450 KG.'),
+        _Cliente('Cliente 2', 'Premium P.G4'),
+
       ],
     );
   }
