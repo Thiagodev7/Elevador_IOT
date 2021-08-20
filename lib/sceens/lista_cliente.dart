@@ -1,8 +1,6 @@
-
 import 'package:bitebunk/sceens/formulario_cliente.dart';
 import 'package:bitebunk/sceens/galeria_cliente.dart';
 import 'package:flutter/material.dart';
-
 
 class ListaCliente extends StatefulWidget {
   @override
@@ -15,9 +13,49 @@ class _ListaClienteState extends State<ListaCliente> {
     return MaterialApp(
       theme: _Theme(),
       home: Scaffold(
-
-        body: _ListaClieteBuild(),
+        body: _CorpoCentral(context),
         floatingActionButton: BotaoNewClient(context),
+      ),
+    );
+  }
+
+  ListView _CorpoCentral(BuildContext context) {
+    return ListView(
+      children: [
+        _AppBarY(context),
+        SizedBox(
+          height: 20,
+        ),
+        _Cliente(
+          'Cliente 1',
+          'Office 450 KG.',
+        ),
+      ],
+    );
+  }
+
+  Padding _AppBarY(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          IconButton(
+            icon: const Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          Image.asset(
+            'images/logo_ati.png',
+            scale: 7,
+          ),
+          Container(
+            child: SizedBox(
+              width: 30.0,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -41,45 +79,10 @@ class _ListaClienteState extends State<ListaCliente> {
   ThemeData _Theme() {
     return ThemeData(
       primaryColor: Colors.blueGrey,
-
       buttonTheme: ButtonThemeData(
         buttonColor: Colors.blueAccent[700],
         textTheme: ButtonTextTheme.primary,
       ),
-    );
-  }
-
-
-
-  ListView _ListaClieteBuild() {
-    return ListView(
-      children: <Widget>[
-        _Cliente('Cliente 1', 'Office 450 KG.'),
-        _Cliente('Cliente 2', 'Premium P.G4'),
-        _Cliente('Cliente 1', 'Office 450 KG.'),
-        _Cliente('Cliente 2', 'Premium P.G4'),
-        _Cliente('Cliente 1', 'Office 450 KG.'),
-        _Cliente('Cliente 2', 'Premium P.G4'),
-        _Cliente('Cliente 1', 'Office 450 KG.'),
-        _Cliente('Cliente 2', 'Premium P.G4'),
-        _Cliente('Cliente 1', 'Office 450 KG.'),
-        _Cliente('Cliente 2', 'Premium P.G4'),
-        _Cliente('Cliente 1', 'Office 450 KG.'),
-        _Cliente('Cliente 2', 'Premium P.G4'),
-        _Cliente('Cliente 1', 'Office 450 KG.'),
-        _Cliente('Cliente 2', 'Premium P.G4'),
-        _Cliente('Cliente 1', 'Office 450 KG.'),
-        _Cliente('Cliente 2', 'Premium P.G4'),
-        _Cliente('Cliente 1', 'Office 450 KG.'),
-        _Cliente('Cliente 2', 'Premium P.G4'),
-        _Cliente('Cliente 1', 'Office 450 KG.'),
-        _Cliente('Cliente 2', 'Premium P.G4'),
-        _Cliente('Cliente 1', 'Office 450 KG.'),
-        _Cliente('Cliente 2', 'Premium P.G4'),
-        _Cliente('Cliente 1', 'Office 450 KG.'),
-        _Cliente('Cliente 2', 'Premium P.G4'),
-
-      ],
     );
   }
 }
@@ -91,23 +94,25 @@ class _Cliente extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(Theme.of(context).primaryColor),
-      ),
-      onPressed: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return GaleriaCliente();
-        },),);
-      },
+    return GestureDetector(
       child: Card(
-        child: ListTile(
-          leading: Image.asset('images/ATI.jpg'),
-          title: Text(nome),
-          subtitle: Text(modelo),
-          trailing: Icon(Icons.more_vert),
+          child: ListTile(
+        leading: Image.asset('images/ATI.jpg'),
+        title: Text(nome),
+        subtitle: Text(modelo),
+        trailing: IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.more_vert),
         ),
-      ),
+      )),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => GaleriaCliente(),
+          ),
+        );
+      },
     );
   }
 }
